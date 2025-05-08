@@ -69,15 +69,6 @@ const showDot = computed(() =>
 const menus = computed(() => [
   {
     handler: () => {
-      openWindow(VBEN_DOC_URL, {
-        target: '_blank',
-      });
-    },
-    icon: BookOpenText,
-    text: $t('ui.widgets.document'),
-  },
-  {
-    handler: () => {
       router.push({
         name: 'sys:personal',
       });
@@ -88,24 +79,6 @@ const menus = computed(() => [
       });
     },
     text: '个人中心',
-  },
-  {
-    handler: () => {
-      openWindow(VBEN_GITHUB_URL, {
-        target: '_blank',
-      });
-    },
-    icon: SvgGiteeIcon,
-    text: '源码',
-  },
-  {
-    handler: () => {
-      openWindow(`${VBEN_GITHUB_URL}/issues`, {
-        target: '_blank',
-      });
-    },
-    icon: CircleHelp,
-    text: $t('ui.widgets.qa'),
   },
 ]);
 
