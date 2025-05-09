@@ -8,7 +8,12 @@ import '@vben/styles';
 import '@vben/styles/ele';
 
 import { useTitle } from '@vueuse/core';
-import { ElLoading } from 'element-plus';
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+
+// import { ElLoading } from 'element-plus';
 
 import { $t, setupI18n } from '#/locales';
 
@@ -29,8 +34,13 @@ async function bootstrap(namespace: string) {
   // });
   const app = createApp(App);
 
+  app.use(ElementPlus)
+  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+  }
+
   // 注册Element Plus提供的v-loading指令
-  app.directive('loading', ElLoading.directive);
+  // app.directive('loading', ElLoading.directive);
 
   // 注册Vben提供的v-loading和v-spinning指令
   registerLoadingDirective(app, {
